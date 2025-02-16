@@ -1,0 +1,18 @@
+<div class="flex flex-row justify-between items-center p-4 bg-gray-950 gap-4">
+  <div class="flex justify-between w-auto">
+    <img src="logo.webp" alt="logo" class="w-10 h-10" (click)="goToHome()" />
+  </div>
+  <div class="flex justify-center gap-2 w-screen">
+    <select class="bg-gray-800 text-white px-4 py-2 w-auto rounded-md">
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+    <input type="text" class="bg-gray-800 text-white w-1/2 px-4 py-2 rounded-md" placeholder="Buscar" />
+  </div>
+  <div class="flex justify-end w-[200px]">
+    <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded-md" (click)="goToLogin()">
+      Iniciar sesión
+    </button>
+  </div>
+</div>
