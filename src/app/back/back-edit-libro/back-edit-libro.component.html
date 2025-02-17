@@ -1,0 +1,82 @@
+<div class="relative overflow-x-auto sm:rounded-t-lg">
+  <div class="p-4 bg-white block sm:flex items-center justify-between border-t border-gray-200">
+    <div class="w-full mb-1">
+      <div class="mb-4">
+        <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl">
+          @if(id === 0) {
+            Añadir un líbro
+          } @else {
+            Editar libro {{ libro.titulo }}
+          }
+        </h1>
+      </div>
+      <div class="sm:flex">
+        <div class="flex items-center mb-4 sm:mb-0">
+          <button (click)="guardarLibro()"
+            class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200">
+            @if(id === 0) {
+              Guardar
+            } @else {
+              Editar
+            }
+          </button>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="p-4 bg-white rounded-b-lg">
+  <form [formGroup]="formLibro">
+    <div class="grid gap-4 mb-4 md:grid-cols-2">
+      <div class="mb-4">
+        <label for="titulo" class="block mb-2 text-sm font-medium text-gray-900">Título</label>
+        <input type="text" id="titulo" formControlName="titulo" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5">
+      </div>
+      <div class="mb-4">
+        <label for="descripcion" class="block mb-2 text-sm font-medium text-gray-900">Descripción</label>
+        <input type="text" id="descripcion" formControlName="descripcion" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5">
+      </div>
+      <div class="mb-4">
+        <label for="autor" class="block mb-2 text-sm font-medium text-gray-900">Autor</label>
+        <input type="text" id="autor" formControlName="autor" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5">
+      </div>
+      <div class="mb-4">
+        <label for="aniopublicacion" class="block mb-2 text-sm font-medium text-gray-900">Año de publicación</label>
+        <input type="text" id="aniopublicacion" formControlName="aniopublicacion" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5">
+      </div>
+      <div class="mb-4">
+        <label for="genero" class="block mb-2 text-sm font-medium text-gray-900">Género</label>
+        <input type="text" id="genero" formControlName="genero" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5">
+      </div>
+      <div class="mb-4">
+        <label for="isbn" class="block mb-2 text-sm font-medium text-gray-900">ISBN</label>
+        <input type="text" id="isbn" formControlName="isbn" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5">
+      </div>
+      <div class="mb-4">
+        <label class="block mb-2 text-sm font-medium text-gray-900">Portada del libro</label>
+        <div class="flex items-center justify-center w-full">
+          <label class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+            @if(!imagenPreview) {
+              <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                </svg>
+                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click para subir</span> o arrastra y suelta</p>
+                <p class="text-xs text-gray-500">PNG, JPG o WEBP (MAX. 2MB)</p>
+              </div>
+            } @else {
+              <img [src]="imagenPreview" class="w-full h-full object-cover rounded-lg" alt="Preview">
+            }
+            <input 
+              type="file" 
+              class="hidden" 
+              accept="image/*"
+              (change)="onFileSelected($event)">
+          </label>
+        </div>
+        @if(formLibro.get('imagen')?.hasError('required') && formLibro.get('imagen')?.touched) {
+          <p class="mt-2 text-sm text-red-600">La imagen es requerida</p>
+        }
+      </div>
+    </div>
+  </form>
+</div>

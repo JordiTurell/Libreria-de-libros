@@ -43,7 +43,7 @@ export class LoginComponent {
         complete:() => {
           this.isLoading = false
           if(this.authService.getToken() != null){
-            this.router.navigate(['/home'])
+            this.router.navigate(['/back/home'])
           }else{
             this.errorMessage = 'Acceso incorrecto'
             this.isModalOpen = true

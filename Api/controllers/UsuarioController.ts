@@ -3,7 +3,7 @@ import { Usuario } from '../models/Usuario';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'tu_clave_secreta';
+const JWT_SECRET = process.env.JWT_SECRET || 'ghjfkdlshgkfl5748390578329';
 
 export class UsuarioController {
   // Registro de usuario
@@ -86,4 +86,13 @@ export class UsuarioController {
       return res.status(500).json({ error: 'Error en el login' });
     }
   }
+
+  async getUsuarios(req: Request, res: Response) {
+    try {
+      const usuarios = await Usuario.findAll();
+      return res.status(200).json(usuarios);
+    } catch (error) {
+      return res.status(500).json({ error: 'Error al obtener los usuarios' });
+    }
+  } 
 } 

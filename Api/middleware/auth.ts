@@ -8,17 +8,25 @@ export interface AuthRequest extends Request {
 }
 
 export const verificarToken = (req: AuthRequest, res: Response, next: NextFunction) => {
-  const token = req.header('Authorization')?.replace('Bearer ', '');
-
-  if (!token) {
-    return res.status(401).json({ error: 'Acceso denegado' });
-  }
-
   try {
+    const authHeader = req.header('Authorization');
+    console.log('Auth Header:', authHeader);
+    
+    const token = authHeader?.replace('Bearer ', '');
+    console.log('Token:', token);
+    console.log('JWT_SECRET:', JWT_SECRET);
+
+    if (!token) {
+        throw new Error('Token no proporcionado');
+    }
+
     const verified = jwt.verify(token, JWT_SECRET);
+    console.log('Verified Token:', verified);
+    
     req.usuario = verified;
     next();
   } catch (error) {
-    res.status(400).json({ error: 'Token inválido' });
+    console.log('Error detallado:', error);
+    res.status(401).json({ error: 'Token inválido' });
   }
 }; 

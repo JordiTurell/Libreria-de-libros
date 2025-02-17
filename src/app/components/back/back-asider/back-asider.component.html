@@ -1,0 +1,41 @@
+<aside [class.translate-x-0]="isOpen" [class.-translate-x-full]="!isOpen"
+       class="fixed top-0 left-0 z-20 h-full pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75"
+       aria-label="Sidebar">
+  <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white">
+    <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+      <div class="flex-1 px-3 space-y-1">
+        <a routerLink="/back/home" 
+           routerLinkActive="bg-gray-100 text-gray-900"
+           class="text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center p-2 text-base font-normal rounded-lg cursor-pointer">
+          <svg class="w-6 h-6 transition duration-75" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+          </svg>
+          <span class="ml-3">Home</span>
+        </a>
+        
+        <a routerLink="/back/users" 
+           routerLinkActive="bg-gray-100 text-gray-900"
+           class="text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center p-2 text-base font-normal rounded-lg cursor-pointer">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+          </svg>
+          <span class="ml-3">Usuarios</span>
+        </a>
+        <a routerLink="/back/libros" 
+            routerLinkActive="bg-gray-100 text-gray-900"
+            class="text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center p-2 text-base font-normal rounded-lg cursor-pointer">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;stroke:currentColor;stroke-miterlimit:10;stroke-width:1.91px;}</style></defs><rect class="cls-1" x="7.23" y="5.32" width="9.55" height="3.82"></rect><path class="cls-1" d="M20.59,22.5H5.32A1.91,1.91,0,0,1,4,19.24a1.89,1.89,0,0,1,1.35-.56H20.59"></path><line class="cls-1" x1="19.64" y1="18.68" x2="19.64" y2="22.5"></line><path class="cls-1" d="M20.59,1.5V18.68H5.32a1.91,1.91,0,0,0-1.91,1.91V3.41A1.92,1.92,0,0,1,5.32,1.5Z"></path></g></svg>
+          <span class="ml-3">Libros</span>
+        </a>
+        <a routerLink="/back/categorias" 
+            routerLinkActive="bg-gray-100 text-gray-900"
+            class="text-gray-600 hover:bg-gray-100 hover:text-gray-900 flex items-center p-2 text-base font-normal rounded-lg cursor-pointer">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7.24 2H5.34C3.15 2 2 3.15 2 5.33V7.23C2 9.41 3.15 10.56 5.33 10.56H7.23C9.41 10.56 10.56 9.41 10.56 7.23V5.33C10.57 3.15 9.42 2 7.24 2Z" fill="#292D32"></path> <path opacity="0.4" d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z" fill="#292D32"></path> <path d="M18.6695 13.4302H16.7695C14.5895 13.4302 13.4395 14.5802 13.4395 16.7602V18.6602C13.4395 20.8402 14.5895 21.9902 16.7695 21.9902H18.6695C20.8495 21.9902 21.9995 20.8402 21.9995 18.6602V16.7602C21.9995 14.5802 20.8495 13.4302 18.6695 13.4302Z" fill="#292D32"></path> <path opacity="0.4" d="M7.24 13.4302H5.34C3.15 13.4302 2 14.5802 2 16.7602V18.6602C2 20.8502 3.15 22.0002 5.33 22.0002H7.23C9.41 22.0002 10.56 20.8502 10.56 18.6702V16.7702C10.57 14.5802 9.42 13.4302 7.24 13.4302Z" fill="#292D32"></path> </g></svg>
+          <span class="ml-3">Categorías</span>
+        </a>
+        <!-- Agrega más items del menú según necesites -->
+      </div>
+    </div>
+  </div>
+</aside>

@@ -10,13 +10,11 @@
     "serve:ssr:WordpressApi": "node dist/wordpress-api/server/server.mjs"
   },
   "private": true,
-
   "overrides": {
     "@angular-devkit/build-angular": {
       "tailwindcss": "^4.0.0"
     }
   },
-
   "dependencies": {
     "@angular/animations": "^19.1.0",
     "@angular/common": "^19.1.0",
@@ -30,6 +28,7 @@
     "@angular/ssr": "^19.1.7",
     "@tailwindcss/postcss": "^4.0.6",
     "express": "^4.18.2",
+    "moment": "^2.30.1",
     "postcss": "^8.5.2",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.0.6",
